@@ -1,0 +1,17 @@
+{
+  "name": "silver",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha '**.spec.js'"
+  },
+  "repository": {},
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "chai": "^3.5.0"
+  },
+  "dependencies": {
+    "uuid": "^3.0.1"
+  }
+}

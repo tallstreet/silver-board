@@ -1,0 +1,20 @@
+An order board for silver prices
+
+This is an order board which supports 3 functions
+
+- add(user_id, quantity, price, order_type)
+- cancel(user_id, order_id)
+- summary()
+
+Implementation notes:
+
+I decided to use integers for quantity and price, even though these will be values like 3.5Kg (represented as 3500) or £305 (represented as 30500) because it solves potential rounding issues with using floating point numbers.
+
+I used the ES6 class syntax to define the order board module so it is standardized on the latest javascript standard for class based modules.
+
+I decided to assign a unique random id to each order which is required to be passed if you want to cancel the order. I did it this way as it provides some security since the order id cannot be guessed (e.g. avoiding issues of tricking a user to cancel an order they didn't intend to cancel in a xsrf attack).
+
+I decided the in memory data structure of the orders should just maintain an array of all the orders that have been placed. You could group multiple orders together in particular if they were placed by the same user at the same price, this would reduce memory usage. However I felt the the benefit of this would be small and you would not be able to cancel by order id. 
+
+The summary method needs to loop over all orders and group them together to generate the summary, this can be slow and cpu intensive especially if there are a lot of orders. This could be solved with a caching system which I haven't implemented at this stage as I felt it was better to build a simple solution. 
+
